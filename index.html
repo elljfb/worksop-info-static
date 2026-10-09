@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A friendly guide to Worksop, Nottinghamshire, with local history, places to visit, walks and places to eat.">
+  <meta name="theme-color" content="#173c35">
+  <title>Worksop.info | A guide to Worksop, Nottinghamshire</title>
+  <style>
+    :root {
+      --ink: #172a27;
+      --muted: #5d6c67;
+      --green: #173c35;
+      --green-2: #28584c;
+      --lime: #d5ed9b;
+      --cream: #f7f6ef;
+      --paper: #fffefa;
+      --line: #e3e7dd;
+      --orange: #ed8b56;
+      --radius: 22px;
+      --shadow: 0 16px 45px rgba(23, 42, 39, .08);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behaviour: smooth; }
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .topline { background: var(--green); color: #eaf2e7; font-size: .82rem; }
+    .topline .wrap { display: flex; justify-content: space-between; gap: 16px; padding-block: 9px; }
+    header { background: rgba(247,246,239,.94); border-bottom: 1px solid rgba(23,60,53,.1); }
+    .nav { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 850; letter-spacing: -.045em; font-size: 1.3rem; }
+    .brand-mark { width: 39px; height: 39px; border-radius: 13px; background: var(--lime); display: grid; place-items: center; color: var(--green); font-size: 1.25rem; }
+    .brand span small { display: block; color: var(--muted); font-size: .68rem; letter-spacing: .08em; font-weight: 700; text-transform: uppercase; }
+    nav { display: flex; gap: 26px; align-items: center; }
+    nav a { color: #354742; text-decoration: none; font-size: .93rem; font-weight: 650; }
+    nav a:hover, nav a:focus-visible { color: #9a4b24; }
+    .hero { padding: 76px 0 62px; overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 50px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--green-2); text-transform: uppercase; letter-spacing: .12em; font-size: .76rem; font-weight: 800; }
+    .eyebrow:before { content: ""; width: 25px; height: 2px; background: var(--orange); }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { font-size: clamp(3rem, 6.3vw, 5.4rem); letter-spacing: -.075em; line-height: .99; margin: 20px 0 24px; max-width: 680px; }
+    h1 em { font-style: normal; color: var(--green-2); }
+    .hero-copy { color: var(--muted); font-size: 1.1rem; max-width: 570px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 10px; padding: 13px 19px; border-radius: 999px; text-decoration: none; font-weight: 750; font-size: .92rem; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { background: var(--green); color: white; }
+    .btn-light { background: white; border: 1px solid var(--line); }
+    .hero-art { min-height: 390px; border-radius: 34px; position: relative; overflow: hidden; background: #dbe8c9; box-shadow: var(--shadow); isolation: isolate; }
+    .hero-art:before { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(255,255,255,.15), transparent 45%), linear-gradient(0deg, rgba(14,44,37,.5), transparent 65%); z-index: -1; }
+    .sun { position: absolute; width: 95px; height: 95px; border-radius: 50%; background: #f4c27c; top: 47px; right: 55px; }
+    .hill { position: absolute; bottom: -100px; width: 120%; height: 260px; border-radius: 50% 50% 0 0; }
+    .hill.one { left: -18%; background: #a8c68a; transform: rotate(-8deg); }
+    .hill.two { left: 22%; bottom: -145px; background: #719a70; transform: rotate(9deg); }
+    .water { position: absolute; left: -10%; right: -10%; bottom: 35px; height: 53px; background: #8eb9b5; border-radius: 50%; transform: rotate(-6deg); opacity: .9; }
+    .tree { position: absolute; bottom: 86px; width: 18px; height: 100px; background: #705b43; border-radius: 8px; }
+    .tree:before { content: ""; position: absolute; width: 75px; height: 78px; background: #315f4c; border-radius: 48% 52% 44% 56%; left: -29px; top: -49px; box-shadow: 22px -20px 0 -8px #477657; }
+    .tree.t1 { left: 13%; transform: scale(.8); }
+    .tree.t2 { right: 15%; bottom: 112px; transform: scale(1.05); }
+    .art-label { position: absolute; bottom: 25px; left: 28px; color: white; }
+    .art-label strong { display: block; font-size: 1.1rem; }
+    .art-label span { font-size: .83rem; opacity: .9; }
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 24px 0; gap: 20px; }
+    .stat { display: flex; align-items: center; gap: 13px; }
+    .stat-icon { flex: 0 0 43px; height: 43px; display: grid; place-items: center; background: white; border-radius: 14px; font-size: 1.2rem; }
+    .stat strong { display: block; font-size: .94rem; }
+    .stat span:last-child { color: var(--muted); font-size: .8rem; }
+    section { padding: 78px 0; }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 30px; }
+    h2 { font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: -.055em; margin: 12px 0 0; }
+    .section-head p { max-width: 420px; color: var(--muted); margin-bottom: 3px; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { padding: 27px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); min-height: 220px; }
+    .card-icon { width: 48px; height: 48px; display: grid; place-items: center; border-radius: 15px; background: #eaf1dc; font-size: 1.35rem; margin-bottom: 23px; }
+    .card h3 { font-size: 1.18rem; letter-spacing: -.025em; margin-bottom: 9px; }
+    .card p { color: var(--muted); font-size: .94rem; margin-bottom: 0; }
+    .history { background: #eaf0e3; }
+    .history-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 65px; align-items: start; }
+    .history-copy { color: #50615a; }
+    .history-copy p { margin-top: 22px; }
+    .fact-list { display: grid; gap: 13px; }
+    .fact { display: flex; gap: 17px; padding: 19px 21px; border-radius: 17px; background: rgba(255,255,255,.72); }
+    .fact b { flex: 0 0 62px; color: var(--green-2); font-size: .9rem; }
+    .fact span { color: #4f5f59; font-size: .92rem; }
+    .food { background: var(--paper); }
+    .food-panel { display: grid; grid-template-columns: 1fr 1fr; gap: 35px; padding: clamp(28px, 5vw, 54px); background: var(--green); color: white; border-radius: 30px; align-items: center; }
+    .food-panel .eyebrow { color: var(--lime); }
+    .food-panel h2 { margin-bottom: 17px; }
+    .food-panel p { color: #d2e0d8; }
+    .food-link { padding: 24px; border-radius: 20px; background: rgba(255,255,255,.09); border: 1px solid rgba(255,255,255,.2); }
+    .food-link small { display: block; color: var(--lime); font-size: .74rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px; }
+    .food-link h3 { font-size: 1.4rem; margin-bottom: 10px; }
+    .food-link p { font-size: .9rem; margin-bottom: 18px; }
+    .food-link a { display: inline-flex; gap: 9px; align-items: center; padding: 12px 15px; background: var(--lime); color: var(--green); border-radius: 999px; text-decoration: none; font-weight: 800; font-size: .88rem; }
+    .food-link a:hover { background: white; }
+    .local-note { margin-top: 17px; color: #a9c2b5 !important; font-size: .78rem !important; }
+    .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .visit-card { padding: 25px; border-radius: 20px; background: white; border: 1px solid var(--line); }
+    .visit-card h3 { margin-bottom: 8px; }
+    .visit-card p { color: var(--muted); font-size: .93rem; margin-bottom: 0; }
+    .cta { padding: 0 0 78px; }
+    .cta-inner { display: flex; justify-content: space-between; align-items: center; gap: 25px; padding: 35px 40px; background: #d8e8b9; border-radius: 25px; }
+    .cta-inner h2 { font-size: clamp(1.7rem, 3vw, 2.5rem); }
+    .cta-inner p { color: #50615a; margin: 8px 0 0; }
+    footer { background: #102f29; color: #d7e4dc; padding: 34px 0; font-size: .86rem; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+    footer p { margin: 0; color: #a9beb3; }
+    footer a { color: white; text-decoration: none; }
+    @media (max-width: 800px) {
+      .hero { padding-top: 48px; }
+      .hero-grid, .history-grid, .food-panel { grid-template-columns: 1fr; }
+      .hero-grid { gap: 35px; }
+      .hero-art { min-height: 300px; }
+      .cards { grid-template-columns: 1fr 1fr; }
+      .history-grid { gap: 28px; }
+      .section-head { display: block; }
+      .section-head p { margin-top: 15px; }
+      nav { gap: 14px; }
+    }
+    @media (max-width: 560px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      .topline .wrap { justify-content: center; text-align: center; }
+      .topline .wrap span:last-child { display: none; }
+      .nav { min-height: 70px; }
+      nav a:not(:last-child) { display: none; }
+      nav a:last-child { font-size: .85rem; }
+      h1 { font-size: clamp(2.7rem, 13vw, 4rem); }
+      section { padding: 57px 0; }
+      .stats { grid-template-columns: 1fr; gap: 14px; }
+      .cards, .visit-grid { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+      .food-panel { padding: 25px; }
+      .cta { padding-bottom: 55px; }
+      .cta-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
+      .cta-inner { padding: 27px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behaviour: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline">
+    <div class="wrap"><span>A little local guide to north Nottinghamshire</span><span>Explore • Discover • Enjoy</span></div>
+  </div>
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#" aria-label="Worksop.info home">
+        <span class="brand-mark" aria-hidden="true">W.</span>
+        <span>Worksop.info<small>Local life, local places</small></span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#discover">Discover</a>
+        <a href="#history">Our town</a>
+        <a href="#food">Food & drink</a>
+        <a href="#visit">Plan a visit ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <span class="eyebrow">Welcome to Worksop</span>
+          <h1>A town with<br>stories to <em>share.</em></h1>
+          <p class="hero-copy">Set on the edge of Sherwood Forest, Worksop blends a proud market-town heritage with green spaces, canal-side walks and plenty of places to explore across north Nottinghamshire.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#discover">Explore Worksop <span aria-hidden="true">↘</span></a>
+            <a class="btn btn-light" href="#food">Find somewhere to eat</a>
+          </div>
+        </div>
+        <div class="hero-art" role="img" aria-label="A stylised illustration of rolling green countryside, trees and a canal near Worksop">
+          <span class="sun"></span><span class="hill one"></span><span class="hill two"></span><span class="water"></span><span class="tree t1"></span><span class="tree t2"></span>
+          <div class="art-label"><strong>Room to roam</strong><span>Town life, countryside close by</span></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="stats" aria-label="Worksop highlights">
+        <div class="stat"><span class="stat-icon" aria-hidden="true">⌂</span><div><strong>Market-town roots</strong><span>A history stretching back centuries</span></div></div>
+        <div class="stat"><span class="stat-icon" aria-hidden="true">♧</span><div><strong>Green on the doorstep</strong><span>Parks, trails and open countryside</span></div></div>
+        <div class="stat"><span class="stat-icon" aria-hidden="true">◷</span><div><strong>Places to discover</strong><span>Heritage, independent shops and food</span></div></div>
+      </div>
+    </div>
+
+    <section id="discover">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">A good place to start</span><h2>Discover the local highlights</h2></div>
+          <p>Whether you live nearby or are visiting for the day, Worksop makes a handy base for exploring the character and countryside of this part of Nottinghamshire.</p>
+        </div>
+        <div class="cards">
+          <article class="card"><div class="card-icon" aria-hidden="true">⛪</div><h3>Worksop Priory</h3><p>A landmark at the heart of the town, the Priory’s surviving church and distinctive twin towers are a reminder of Worksop’s long history.</p></article>
+          <article class="card"><div class="card-icon" aria-hidden="true">🌿</div><h3>Canal-side walks</h3><p>The Chesterfield Canal offers a slower pace, with towpaths, waterside views and narrowboats passing through the local landscape.</p></article>
+          <article class="card"><div class="card-icon" aria-hidden="true">🏡</div><h3>Mr Straw’s House</h3><p>Step into a remarkably preserved Edwardian home and get a glimpse of everyday life in the 1920s. Check visitor details before travelling.</p></article>
+          <article class="card"><div class="card-icon" aria-hidden="true">🌳</div><h3>Country parks nearby</h3><p>Clumber Park and other historic estates around the Dukeries make appealing options for fresh air, woodland paths and a change of scene.</p></article>
+          <article class="card"><div class="card-icon" aria-hidden="true">🛍️</div><h3>Town-centre browsing</h3><p>Explore the shops, cafés and everyday services around the centre, and look out for market days and community events.</p></article>
+          <article class="card"><div class="card-icon" aria-hidden="true">🧭</div><h3>Explore further</h3><p>Worksop is well placed for discovering the wider Bassetlaw area, from heritage attractions to countryside walks and nearby villages.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="history" id="history">
+      <div class="wrap history-grid">
+        <div class="history-copy">
+          <span class="eyebrow">A little local history</span>
+          <h2>From old market town to modern Worksop</h2>
+          <p>Worksop’s story reaches back to the medieval period and beyond. Its position in north Nottinghamshire helped it grow as a market town, while the canal, railway and local industries shaped the community over time.</p>
+          <p>Today, historic landmarks sit alongside the shops, schools, neighbourhoods and independent businesses that make up everyday life in Worksop.</p>
+        </div>
+        <div class="fact-list">
+          <div class="fact"><b>1103</b><span>Worksop Priory was founded, becoming one of the town’s best-known historic landmarks.</span></div>
+          <div class="fact"><b>1777</b><span>The Chesterfield Canal was completed, helping connect communities and trade across the region.</span></div>
+          <div class="fact"><b>The Dukeries</b><span>Worksop is often described as the gateway to a cluster of historic estates and country parks in north Nottinghamshire.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="food" id="food">
+      <div class="wrap">
+        <div class="food-panel">
+          <div>
+            <span class="eyebrow">Food & drink</span>
+            <h2>Make room for a local takeaway</h2>
+            <p>Some evenings call for a relaxed night in. Worksop has a range of takeaway choices, from familiar favourites to meals to share with family and friends. If Chinese food is on the menu, here’s a local listing to help you get started.</p>
+          </div>
+          <div class="food-link">
+            <small>Worksop takeaway guide</small>
+            <h3>Golden Dragon, Worksop</h3>
+            <p>Looking for Chinese takeaway information in Worksop? Visit the Golden Dragon listing for details and menu information.</p>
+            <a href="https://chinesetakeawaymenus.com/takeaways/nottinghamshire/worksop/golden-dragon-worksop" target="_blank" rel="noopener">View Golden Dragon details <span aria-hidden="true">↗</span></a>
+            <p class="local-note">Please check the listing or contact the takeaway directly for current menus, prices and opening times.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="visit">
+      <div class="wrap">
+        <div class="section-head">
+          <div><span class="eyebrow">Make a day of it</span><h2>Planning a visit?</h2></div>
+          <p>A little planning goes a long way. Opening times, access arrangements and event schedules can change, so check details before setting off.</p>
+        </div>
+        <div class="visit-grid">
+          <article class="visit-card"><h3>Getting around</h3><p>Worksop has rail and bus connections serving the surrounding area. Check current timetables and travel updates before you leave.</p></article>
+          <article class="visit-card"><h3>Bring walking shoes</h3><p>From the canal towpath to nearby parkland, there are plenty of ways to enjoy the outdoors. Choose a route that suits your time and ability.</p></article>
+          <article class="visit-card"><h3>Support local</h3><p>Independent shops, cafés and food businesses help give the town its character. Consider exploring local options while you’re in the area.</p></article>
+          <article class="visit-card"><h3>Check before you go</h3><p>For the latest visitor information, explore official tourism and council resources for Worksop and the wider Bassetlaw area.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap cta">
+      <div class="cta-inner">
+        <div><h2>There’s more to Worksop than you think.</h2><p>Take your time, look around and discover a corner of Nottinghamshire at your own pace.</p></div>
+        <a class="btn btn-primary" href="https://www.visit-nottinghamshire.co.uk/explore/market-towns/worksop" target="_blank" rel="noopener">Explore official visitor guide ↗</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="brand" href="#" aria-label="Worksop.info home"><span class="brand-mark" aria-hidden="true">W.</span><span>Worksop.info<small>Local life, local places</small></span></a>
+      <p>An independent guide to Worksop, Nottinghamshire. Information is general and may change.</p>
+    </div>
+  </footer>
+</body>
+</html>
